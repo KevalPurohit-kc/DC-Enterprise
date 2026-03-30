@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>DC Enterprise</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&amp;family=Manrope:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="bg-surface font-body text-on-surface antialiased overflow-x-hidden">
+    <div class="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center" id="preloader">
+        <div class="relative flex flex-col items-center gap-8">
+            <img src="DC logo.png" class="h-20 w-auto animate-pulse">
+
+            <div class="w-48 h-1 bg-neutral-100 overflow-hidden rounded-full">
+                <div class="h-full bg-[#FF1A1A] w-0" id="preloader-bar"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu Overlay -->
+    <div class="fixed inset-0 z-[60] bg-white/95 backdrop-blur-md hidden flex-col items-center justify-center"
+        id="mobile-menu-overlay">
+        <button class="absolute top-8 right-8 text-black p-2" id="close-menu">
+            <span class="material-symbols-outlined text-4xl">close</span>
+        </button>
+        <div class="flex flex-col items-center gap-10">
+            <a class="mobile-nav-link text-4xl font-black text-black hover:text-[#FF1A1A] transition-colors"
+                href="index.html">HOME</a>
+            <a class="mobile-nav-link text-4xl font-black text-black hover:text-[#FF1A1A] transition-colors"
+                href="product.html">PRODUCTS</a>
+            <a class="mobile-nav-link text-4xl font-black text-black hover:text-[#FF1A1A] transition-colors"
+                href="about.html">ABOUT</a>
+            <a class="mobile-nav-link text-4xl font-black text-black hover:text-[#FF1A1A] transition-colors"
+                href="contact.html">Contact</a>
+            <a class="mobile-nav-link bg-primary text-on-primary px-8 py-4 font-bold text-xl mt-4"
+                href="https://www.amazon.in/l/27943762031?ie=UTF8&marketplaceID=A21TJRUUN4KGV&product=B0DFVRJLJ9&me=A12OFR6A51FEUT">SHOP
+                AMAZON</a>
+        </div>
+    </div>
+    <!-- 1. Transparent Sticky Navbar -->
+    <nav class="fixed top-0 w-full z-50 rounded-none glass-nav shadow-sm shadow-black/5 opacity-0 -translate-y-full"
+        id="navbar">
+        <div class="flex justify-between items-center w-full px-8 py-4 max-w-full">
+            <div class="text-2xl font-black tracking-tighter text-black dark:text-white flex items-center gap-2">
+                <img src="DC logo.png" class="h-[60px] w-auto block">
+            </div>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="text-black dark:text-black font-medium hover:text-red-600 transition-colors duration-300"
+                href="index.html">Home</a>
+                <a class="text-black dark:text-black font-medium hover:text-red-600 transition-colors duration-300"
+                href="product.html">Products</a>
+                <a class="text-red-600 dark:text-red-500 font-bold border-b-2 border-red-600 transition-colors duration-300"
+                    href="about.html">About</a>
+                <a class="text-black dark:text-black font-medium hover:text-red-600 transition-colors duration-300"
+                    href="contact.html">Contact</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a class="hidden md:block bg-[#FF1A1A] text-white px-6 py-2.5 font-bold active:scale-95 transition-all"
+                    href="https://www.amazon.in/l/27943762031?ie=UTF8&marketplaceID=A21TJRUUN4KGV&product=B0DFVRJLJ9&me=A12OFR6A51FEUT"
+                    target="_blank" 
+       rel="noopener noreferrer">Shop
+                    on Amazon</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden flex items-center justify-center p-2 text-[#FF1A1A]" id="open-menu">
+                <span class="material-symbols-outlined text-4xl">menu</span>
+            </button>
+        </div>
+        </div>
+    </nav>
+
+
+    <section class="py-32 px-8 md:px-20 bg-surface" id="about-section">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
+
+            <div class="lg:w-1/2 gsap-reveal">
+                <span class="text-primary font-bold tracking-[0.3em] text-sm uppercase">Our Story</span>
+                <h2 class="font-headline text-5xl font-black mt-4 leading-tight">Driven by <br />Everyday Utility.</h2>
+                <div class="mt-12 h-1 w-24 bg-[#FF1A1A]"></div>
+            </div>
+
+            <div class="lg:w-1/2 space-y-10">
+                <p class="about-text gsap-reveal text-secondary text-xl leading-relaxed">
+                    <strong>DC Enterprise</strong> is a trusted Amazon India seller dedicated to bringing high-quality,
+                    practical innovations into your home. From precision kitchen tools to daily lifestyle essentials,
+                    our mission is to provide products that make life simpler, faster, and more efficient.
+                </p>
+
+                <p class="about-text gsap-reveal text-secondary text-lg leading-relaxed">
+                    We believe in strict quality control and customer-first service. Every product we list on our Amazon
+                    storefront is hand-picked to ensure it meets our standards of durability and performance.
+                </p>
+
+                <div class="stats-container gsap-reveal grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+                    <div class="border-l-4 border-[#FF1A1A] pl-6">
+                        <div class="text-4xl font-black font-headline">100%</div>
+                        <div class="text-secondary uppercase tracking-widest text-[10px] mt-2 font-bold">Verified
+                            Products</div>
+                    </div>
+                    <div class="border-l-4 border-[#FF1A1A] pl-6">
+                        <div class="text-4xl font-black font-headline">All Our-India</div>
+                        <div class="text-secondary uppercase tracking-widest text-[10px] mt-2 font-bold">Fast Delivery
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 gsap-reveal">
+                    <a href="https://www.amazon.in/l/27943762031?ie=UTF8&marketplaceID=A21TJRUUN4KGV&product=B0DFVRJLJ9&me=A12OFR6A51FEUT"
+                        target="_blank" rel="noopener noreferrer"
+                        class="inline-block bg-black text-white px-8 py-4 font-black uppercase text-sm tracking-widest hover:bg-[#FF1A1A] hover:shadow-lg transition-all duration-300">
+                        Visit Our Amazon Store
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="w-full bg-neutral-900 text-white px-8 md:px-20 py-16">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+
+            <div class="flex flex-col gap-4">
+                <div class="text-2xl font-black uppercase tracking-tighter">
+                    <span class="text-[#FF1A1A]">DC</span> Enterprise
+                </div>
+                <p class="text-neutral-400 text-sm max-w-xs">
+                    Premium kitchenware and lifestyle products. We bring quality to your everyday needs.
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold uppercase text-xs tracking-[0.2em] text-[#FF1A1A]">Navigation</h4>
+                <div class="flex flex-col gap-2">
+                    <a href="index.html" class="text-neutral-400 hover:text-white transition-colors text-sm">Home</a>
+                    <a href="product.html"
+                        class="text-neutral-400 hover:text-white transition-colors text-sm">Products</a>
+                    <a href="about.html" class="text-neutral-400 hover:text-white transition-colors text-sm">About
+                        Us</a>
+                    <a href="contact.html"
+                        class="text-neutral-400 hover:text-white transition-colors text-sm">Contact</a>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-4 md:items-end">
+                <h4 class="font-bold uppercase text-xs tracking-[0.2em] text-[#FF1A1A]">Get In Touch</h4>
+                <div class="text-neutral-400 text-sm md:text-right">
+                    <p>Rajkot, Gujarat, India</p>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full mt-10 pt-6 flex justify-center md:justify-end border-t border-neutral-800">
+            <div class="text-neutral-500 text-[10px] uppercase tracking-widest">
+                Designed & Developed by
+                <a href="mailto:kevalpurohit305@gmail.com"
+                    class="text-white hover:text-[#FF1A1A] transition-colors border-b border-neutral-700 pb-0.5">
+                    Keval Purohit
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

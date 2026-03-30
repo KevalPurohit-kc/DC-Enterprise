@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>DC Enterprise</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&amp;family=Manrope:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="bg-surface font-body text-on-surface antialiased overflow-x-hidden">
+    <div class="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center" id="preloader">
+        <div class="relative flex flex-col items-center gap-8">
+            <img src="DC logo.png" class="h-20 w-auto animate-pulse">
+
+            <div class="w-48 h-1 bg-neutral-100 overflow-hidden rounded-full">
+                <div class="h-full bg-[#FF1A1A] w-0" id="preloader-bar"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu Overlay -->
+    <div class="fixed inset-0 z-[60] bg-white/95 backdrop-blur-md hidden flex-col items-center justify-center"
+        id="mobile-menu-overlay">
+        <button class="absolute top-8 right-8 text-black p-2" id="close-menu">
+            <span class="material-symbols-outlined text-4xl">close</span>
+        </button>
+        <div class="flex flex-col items-center gap-10">
+            <a class="mobile-nav-link text-4xl font-black text-black hover:text-[#FF1A1A] transition-colors"
+                href="index.html">HOME</a>
+            <a class="mobile-nav-link text-4xl font-black text-black hover:text-[#FF1A1A] transition-colors"
+                href="product.html">PRODUCTS</a>
+            <a class="mobile-nav-link text-4xl font-black text-black hover:text-[#FF1A1A] transition-colors"
+                href="about.html">ABOUT</a>
+            <a class="mobile-nav-link text-4xl font-black text-black hover:text-[#FF1A1A] transition-colors"
+                href="contact.html">Contact</a>
+            <a class="mobile-nav-link bg-primary text-on-primary px-8 py-4 font-bold text-xl mt-4"
+                href="https://www.amazon.in/l/27943762031?ie=UTF8&marketplaceID=A21TJRUUN4KGV&product=B0DFVRJLJ9&me=A12OFR6A51FEUT">SHOP
+                AMAZON</a>
+        </div>
+    </div>
+    <!-- 1. Transparent Sticky Navbar -->
+    <nav class="fixed top-0 w-full z-50 rounded-none glass-nav shadow-sm shadow-black/5 opacity-0 -translate-y-full"
+        id="navbar">
+        <div class="flex justify-between items-center w-full px-8 py-4 max-w-full">
+            <div class="text-2xl font-black tracking-tighter text-black dark:text-white flex items-center gap-2">
+                <img src="DC logo.png" class="h-[60px] w-auto block">
+            </div>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="text-red-600 dark:text-red-500 font-bold border-b-2 border-red-600 transition-colors duration-300"
+                    href="index.html">Home</a>
+                <a class="text-black dark:text-black font-medium hover:text-red-600 transition-colors duration-300"
+                    href="product.html">Products</a>
+                <a class="text-black dark:text-black font-medium hover:text-red-600 transition-colors duration-300"
+                    href="about.html">About</a>
+                <a class="text-black dark:text-black font-medium hover:text-red-600 transition-colors duration-300"
+                    href="contact.html">Contact</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a class="hidden md:block bg-[#FF1A1A] text-white px-6 py-2.5 font-bold active:scale-95 transition-all"
+                    href="https://www.amazon.in/l/27943762031?ie=UTF8&marketplaceID=A21TJRUUN4KGV&product=B0DFVRJLJ9&me=A12OFR6A51FEUT"
+                    target="_blank" rel="noopener noreferrer">Shop
+                    on Amazon</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden flex items-center justify-center p-2 text-[#FF1A1A]" id="open-menu">
+                <span class="material-symbols-outlined text-4xl">menu</span>
+            </button>
+        </div>
+        </div>
+    </nav>
+    <!-- 2. Trust Signals Marquee -->
+    <div class="mt-[90px] bg-surface-container-lowest py-4 border-none shadow-sm" style="background-color: darkgrey;">
+        <div class="marquee-container relative flex">
+            <div class="marquee-content flex gap-12 items-center">
+                <span class="text-primary font-bold tracking-widest text-sm flex items-center gap-2">🚀 FAST &amp; FREE
+                    DELIVERY</span>
+                <span class="text-primary font-bold tracking-widest text-sm flex items-center gap-2">⭐ TOP-RATED</span>
+                <span class="text-primary font-bold tracking-widest text-sm flex items-center gap-2">💯 100%
+                    SATISFACTION</span>
+                <span class="text-primary font-bold tracking-widest text-sm flex items-center gap-2">🔥 AMAZON BEST
+                    SELLER</span>
+                <!-- Duplicate for seamless loop -->
+                <span class="text-primary font-bold tracking-widest text-sm flex items-center gap-2">🚀 FAST &amp; FREE
+                    DELIVERY</span>
+                <span class="text-primary font-bold tracking-widest text-sm flex items-center gap-2">⭐ TOP-RATED</span>
+                <span class="text-primary font-bold tracking-widest text-sm flex items-center gap-2">💯 100%
+                    SATISFACTION</span>
+                <span class="text-primary font-bold tracking-widest text-sm flex items-center gap-2">🔥 AMAZON BEST
+                    SELLER</span>
+            </div>
+        </div>
+    </div>
+    <!-- 3. Hero Section -->
+    <section class="relative min-h-[819px] flex items-center px-8 md:px-20 py-20 bg-surface overflow-hidden"
+        id="hero-section">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="hero-content gsap-reveal space-y-8">
+                <h1
+                    class="font-headline text-6xl md:text-8xl font-black text-on-surface leading-[0.9] tracking-tighter">
+                    The Art of <br /><span class="text-primary">Precision.</span>
+                </h1>
+                <p class="text-secondary text-xl max-w-lg leading-relaxed">
+                    DC Enterprise creates high-velocity everyday essentials engineered for the modern professional.
+                    Clinical design meets unapologetic functionality.
+                </p>
+                <div class="flex gap-4">
+                    <a href="product.html">
+                        <button
+                            class="bg-primary text-on-primary px-10 py-4 font-bold text-lg hover:bg-primary-container transition-all">Explore
+                            Collection</button>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image gsap-reveal relative flex justify-center items-center">
+                <div class="absolute -z-10 w-[120%] h-[120%] bg-surface-container-high opacity-50 rotate-3"></div>
+                <img src="img/MUG.jpg"
+                    class="w-full max-w-md drop-shadow-[0_50px_50px_rgba(0,0,0,0.15)] transform transition-transform duration-700 hover:scale-105"
+                    data-alt="Hyper-realistic camera lens coffee mug with intricate lens details standing on a minimalist white stone surface with sharp morning shadows" />
+            </div>
+        </div>
+    </section>
+    <!-- 4. Featured Products Section -->
+    <section class="py-32 px-8 md:px-20 bg-surface-container-low" id="products-section">
+        <div class="max-w-7xl mx-auto flex flex-col">
+            <div class="gsap-reveal mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
+                <div>
+                    <span class="text-primary font-bold tracking-[0.3em] text-sm uppercase">Curated Excellence</span>
+                    <h2 class="font-headline text-5xl font-black mt-4">Featured <span class="text-primary">Lineup</span>
+                    </h2>
+                </div>
+                <p class="text-secondary max-w-md">Our most requested precision tools, battle-tested by thousands of
+                    customers globally.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="product-card gsap-reveal tilt-card bg-surface-container-lowest p-8 flex flex-col group">
+                    <div class="relative mb-8 bg-surface-container overflow-hidden">
+                        <span
+                            class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 text-xs font-black z-10">BEST
+                            SELLER</span>
+                        <img src="img/MUG.jpg"
+                            class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110" />
+                    </div>
+                    <h3 class="font-headline text-2xl font-black mb-2">Camera Lens Mug</h3>
+                    <p class="text-secondary text-sm mb-8 flex-grow">The ultimate desk statement. Precision engineered
+                        to mimic a high-end lens.</p>
+                    <a href="https://www.amazon.in/VAZX-Stainless-Camera-Shaped-Retractable/dp/B0DFVRJLJ9/?_encoding=UTF8&m=A12OFR6A51FEUT&psc=1&pd_rd_w=2VyNV&content-id=amzn1.sym.3a1a5a8a-4f07-4818-99a5-4c707788e123&pf_rd_p=3a1a5a8a-4f07-4818-99a5-4c707788e123&pf_rd_r=YMVVW9MKAWS7B1H08THN&pd_rd_wg=uiEZ6&pd_rd_r=83b6f3b4-726a-4dd2-884c-3939a4d25bb6&ref_=lscx_w_ssf_bs"
+                        target="_blank" class="w-full">
+                        <button
+                            class="w-full bg-transparent border-2 border-[#FF1A1A] text-[#FF1A1A] py-4 px-6 font-black tracking-widest uppercase text-sm transition-all duration-300 hover:bg-[#FF1A1A] hover:text-white">
+                            Buy on Amazon
+                        </button>
+                    </a>
+                </div>
+
+                <div class="product-card gsap-reveal tilt-card bg-surface-container-lowest p-8 flex flex-col group">
+                    <div class="relative mb-8 bg-surface-container overflow-hidden">
+                        <span
+                            class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 text-xs font-black z-10">BEST
+                            SELLER</span>
+                        <img src="img/bottle.jpg"
+                            class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110" />
+                    </div>
+                    <h3 class="font-headline text-2xl font-black mb-2">Water Bottle</h3>
+                    <p class="text-secondary text-sm mb-8 flex-grow">Motivational Time Marker Bottle. Leakproof,
+                        non-toxic, and durable.</p>
+                    <a href="https://www.amazon.in/VAZX-Transparent-Motivational-Leakproof-Non-Toxic/dp/B0G4KSK24B/ref=lp_27943762031_1_3?pf_rd_p=9e034799-55e2-4ab2-b0d0-eb42f95b2d05&pf_rd_r=Y95GJJEFYQHG1NSQ1DVY&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D"
+                        target="_blank" class="w-full">
+                        <button
+                            class="w-full bg-transparent border-2 border-[#FF1A1A] text-[#FF1A1A] py-4 px-6 font-black tracking-widest uppercase text-sm transition-all duration-300 hover:bg-[#FF1A1A] hover:text-white">
+                            Buy on Amazon
+                        </button>
+                    </a>
+                </div>
+
+                <div class="product-card gsap-reveal tilt-card bg-surface-container-lowest p-8 flex flex-col group">
+                    <div class="relative mb-8 bg-surface-container overflow-hidden">
+                        <img src="img/smallchopper.jpg"
+                            class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110" />
+                    </div>
+                    <h3 class="font-headline text-2xl font-black mb-2">Small Chopper</h3>
+                    <p class="text-secondary text-sm mb-8 flex-grow">Powerful handheld food processor for chopping
+                        vegetables, fruits, and nuts. Features 3 sharp stainless steel blades for quick and even
+                        chopping,
+                        with an anti-skid base and easy-to-use pull cord mechanism.</p>
+                    <a href="https://www.amazon.in/Processor-Vegetable-Chopper-Blender-Coleslaw/dp/B076Y86MTT/?_encoding=UTF8&m=A12OFR6A51FEUT&psc=1&pd_rd_w=PPH6L&content-id=amzn1.sym.3a1a5a8a-4f07-4818-99a5-4c707788e123&pf_rd_p=3a1a5a8a-4f07-4818-99a5-4c707788e123&pf_rd_r=Y95GJJEFYQHG1NSQ1DVY&pd_rd_wg=GkZr1&pd_rd_r=284fce08-cb35-43e6-a4f0-def2b0b8a18f&ref_=lscx_w_ssf_bs"
+                        target="_blank" class="w-full">
+                        <button
+                            class="w-full bg-transparent border-2 border-[#FF1A1A] text-[#FF1A1A] py-4 px-6 font-black tracking-widest uppercase text-sm transition-all duration-300 hover:bg-[#FF1A1A] hover:text-white">
+                            Buy on Amazon
+                        </button>
+                    </a>
+                </div>
+
+
+            </div>
+
+            <div class="mt-24 w-full flex flex-col items-center justify-center text-center gsap-reveal">
+
+                <a href="product.html" class="group relative inline-flex items-center justify-center px-16 py-5 font-black tracking-[0.3em] uppercase text-sm 
+                          bg-transparent border-2 border-[#FF1A1A] text-[#FF1A1A] 
+                          overflow-hidden transition-all duration-500
+                          hover:text-white hover:scale-105 active:scale-95 shadow-xl hover:shadow-[#FF1A1A]/20">
+
+                    <span class="relative z-10 flex items-center gap-4">
+                        Explore All Products
+                        <span
+                            class="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-3">arrow_forward</span>
+                    </span>
+
+                    <div
+                        class="absolute inset-0 bg-[#FF1A1A] -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out">
+                    </div>
+                </a>
+
+                <p class="mt-6 text-neutral-400 text-[10px] font-bold tracking-[0.4em] uppercase opacity-50">
+                    Official DC Enterprise Storefront
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- 5. About Section -->
+    <section class="py-32 px-8 md:px-20 bg-surface" id="about-section">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20">
+            <div class="lg:w-1/2 gsap-reveal">
+                <span class="text-primary font-bold tracking-[0.3em] text-sm uppercase">Our DNA</span>
+                <h2 class="font-headline text-5xl font-black mt-4 leading-tight">Who is <br />DC Enterprise?</h2>
+                <div class="mt-12 h-1 w-24 bg-primary"></div>
+            </div>
+            <div class="lg:w-1/2 space-y-12">
+                <p class="about-text gsap-reveal text-secondary text-xl leading-relaxed">
+                    We believe in strict quality control and customer-first service. Every product we list on our Amazon
+                    storefront is hand-picked to ensure it meets our standards of durability and performance.
+                </p>
+                <div class="stats-container gsap-reveal grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
+                    <div class="border-l-4 border-primary pl-6">
+                        <div class="text-5xl font-black font-headline">1000+</div>
+                        <div class="text-secondary uppercase tracking-widest text-xs mt-2 font-bold">Loyal Customers
+                        </div>
+                    </div>
+                    <div class="border-l-4 border-primary pl-6">
+                        <div class="text-5xl font-black font-headline">4.8/5</div>
+                        <div class="text-secondary uppercase tracking-widest text-xs mt-2 font-bold">Amazon Rating
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="w-full bg-neutral-900 text-white px-8 md:px-20 py-16">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+
+            <div class="flex flex-col gap-4">
+                <div class="text-2xl font-black uppercase tracking-tighter">
+                    <span class="text-[#FF1A1A]">DC</span> Enterprise
+                </div>
+                <p class="text-neutral-400 text-sm max-w-xs">
+                    Premium kitchenware and lifestyle products. We bring quality to your everyday needs.
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold uppercase text-xs tracking-[0.2em] text-[#FF1A1A]">Navigation</h4>
+                <div class="flex flex-col gap-2">
+                    <a href="index.html" class="text-neutral-400 hover:text-white transition-colors text-sm">Home</a>
+                    <a href="product.html"
+                        class="text-neutral-400 hover:text-white transition-colors text-sm">Products</a>
+                    <a href="about.html" class="text-neutral-400 hover:text-white transition-colors text-sm">About
+                        Us</a>
+                    <a href="contact.html"
+                        class="text-neutral-400 hover:text-white transition-colors text-sm">Contact</a>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-4 md:items-end">
+                <h4 class="font-bold uppercase text-xs tracking-[0.2em] text-[#FF1A1A]">Get In Touch</h4>
+                <div class="text-neutral-400 text-sm md:text-right">
+                    <p>Rajkot, Gujarat, India</p>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full mt-10 pt-6 flex justify-center md:justify-end border-t border-neutral-800">
+            <div class="text-neutral-500 text-[10px] uppercase tracking-widest">
+                Designed & Developed by
+                <a href="mailto:kevalpurohit305@gmail.com"
+                    class="text-white hover:text-[#FF1A1A] transition-colors border-b border-neutral-700 pb-0.5">
+                    Keval Purohit
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

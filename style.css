@@ -1,0 +1,57 @@
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+        }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .tilt-card {
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            transform-style: preserve-3d;
+        }
+        .tilt-card:hover {
+            transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-8px);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.1);
+        }
+        /* Reveal states for GSAP */
+        .gsap-reveal {
+            opacity: 0;
+            visibility: hidden;
+        }
+        #preloader {
+            transition: opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1), visibility 0.8s;
+        }
+        #preloader.loaded {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        @keyframes progress-loading {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        #preloader-bar {
+            animation: progress-loading 2s ease-in-out forwards;
+        }
+        /* Mobile Menu Overlay Styles */
+        #mobile-menu-overlay {
+            clip-path: circle(0% at 100% 0%);
+            transition: clip-path 0.6s ease-in-out;
+        }
+        #mobile-menu-overlay.active {
+            clip-path: circle(150% at 100% 0%);
+        }
+   
