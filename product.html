@@ -7,6 +7,29 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>DC Enterprise</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF1A1A',
+                        'on-primary': '#FFFFFF',
+                        surface: '#ffffff',
+                        'on-surface': '#0f172a',
+                        'surface-container-lowest': '#f8fafc',
+                        'surface-container-low': '#f1f5f9',
+                        'surface-container': '#e2e8f0',
+                        'surface-container-high': '#cbd5e1',
+                        secondary: '#475569'
+                    },
+                    fontFamily: {
+                        headline: ['Epilogue', 'sans-serif'],
+                        body: ['Manrope', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <link
         href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&amp;family=Manrope:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
@@ -18,8 +41,8 @@
 
 </head>
 
-<body class="bg-surface font-body text-on-surface antialiased overflow-x-hidden">
-    <div class="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center" id="preloader">
+<body class="bg-surface font-body text-on-surface antialiased">
+    <div class="fixed inset-0 z-[100] bg-surface flex flex-col items-center justify-center" id="preloader">
         <div class="relative flex flex-col items-center gap-8">
             <img src="DC logo.png" class="h-20 w-auto animate-pulse">
 
@@ -51,31 +74,31 @@
         </div>
     </div>
     <!-- 1. Transparent Sticky Navbar -->
-    <nav class="fixed top-0 w-full z-50 rounded-none glass-nav shadow-sm shadow-black/5 opacity-0 -translate-y-full"
+    <nav class="fixed top-0 w-full z-50 rounded-none glass-nav shadow-sm opacity-0 -translate-y-full"
         id="navbar">
         <div class="flex justify-between items-center w-full px-8 py-4 max-w-full">
-            <div class="text-2xl font-black tracking-tighter text-black dark:text-white flex items-center gap-2">
+            <div class="text-2xl font-black tracking-tighter text-on-surface flex items-center gap-2">
                 <img src="DC logo.png" class="h-[60px] w-auto block">
             </div>
             <!-- Desktop Menu -->
             <div class="hidden md:flex gap-8 items-center">
-                <a class="text-black dark:text-black font-medium hover:text-red-600 transition-colors duration-300"
+                <a class="text-on-surface font-semibold hover:text-primary transition-colors duration-300"
                     href="index.html">Home</a>
-                <a class="text-red-600 dark:text-red-500 font-bold border-b-2 border-red-600 transition-colors duration-300"
+                <a class="text-primary font-bold border-b-2 border-primary transition-colors duration-300"
                     href="product.html">Products</a>
-                <a class="text-black dark:text-black font-medium hover:text-red-600 transition-colors duration-300"
+                <a class="text-on-surface font-semibold hover:text-primary transition-colors duration-300"
                     href="about.html">About</a>
-                <a class="text-black dark:text-black font-medium hover:text-red-600 transition-colors duration-300"
+                <a class="text-on-surface font-semibold hover:text-primary transition-colors duration-300"
                     href="contact.html">Contact</a>
             </div>
 
             <div class="flex items-center gap-4">
-                <a class="hidden md:block bg-[#FF1A1A] text-white px-6 py-2.5 font-bold active:scale-95 transition-all"
+                <a class="hidden md:block bg-primary text-white px-6 py-2.5 font-bold active:scale-95 transition-all shadow-[0_4px_14px_0_rgba(255,26,26,0.39)] hover:bg-red-700"
                     href="https://www.amazon.in/l/27943762031?ie=UTF8&marketplaceID=A21TJRUUN4KGV&product=B0DFVRJLJ9&me=A12OFR6A51FEUT">Shop
                     on Amazon</a>
             </div>
             <!-- Mobile Menu Button -->
-            <button class="md:hidden flex items-center justify-center p-2 text-[#FF1A1A]" id="open-menu">
+            <button class="md:hidden flex items-center justify-center p-2 text-primary" id="open-menu">
                 <span class="material-symbols-outlined text-4xl">menu</span>
             </button>
         </div>
@@ -83,7 +106,7 @@
     </nav>
 
     <!-- 2. Featured Products Section -->
-    <section class="py-32 px-8 md:px-20 bg-surface-container-low" id="products-section">
+    <section class="relative z-10 py-32 px-8 md:px-20 bg-surface-container-low" id="products-section">
 
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -249,6 +272,38 @@
                 </a>
             </div>
 
+            <div class="product-card gsap-reveal tilt-card bg-surface-container-lowest p-8 flex flex-col group">
+                <div class="relative mb-8 bg-surface-container overflow-hidden">
+                    <img src="img/multi.jpg"
+                        class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110" />
+                </div>
+                <h3 class="font-headline text-2xl font-black mb-2">12 in 1 Multipurpose Chopper</h3>
+                <p class="text-secondary text-sm mb-8 flex-grow">Fruits & Vegetable Cutters, Grater Peeler Chipser, Unbreakable Food Grade Body, Easy Push to Clean Button Slicer Dicer, Chopper for Kitchen</p>
+                <a href="https://www.amazon.in/VAZX-12-Multipurpose-Vegetable-Unbreakable/dp/B0DKD5QC6M/?_encoding=UTF8&m=A12OFR6A51FEUT&psc=1&pd_rd_w=NNSNG&pd_rd_wg=XfPcV&pd_rd_r=e5457dad-621a-4cf2-8c90-0f90240dcf03&content-id=amzn1.sym.da911696-31a7-479c-9922-299ce8aee4d0&ref_=lscx_w_ssf_na"
+                    target="_blank" class="w-full">
+                    <button
+                        class="w-full bg-transparent border-2 border-[#FF1A1A] text-[#FF1A1A] py-4 px-6 font-black tracking-widest uppercase text-sm transition-all duration-300 hover:bg-[#FF1A1A] hover:text-white">
+                        Buy on Amazon
+                    </button>
+                </a>
+            </div>
+
+            <div class="product-card gsap-reveal tilt-card bg-surface-container-lowest p-8 flex flex-col group">
+                <div class="relative mb-8 bg-surface-container overflow-hidden">
+                    <img src="img/lunchbox.jpg"
+                        class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110" />
+                </div>
+                <h3 class="font-headline text-2xl font-black mb-2">Steel Lunch Box</h3>
+                <p class="text-secondary text-sm mb-8 flex-grow">Leak Proof Airtight BPA Free Tiffin Box with Spoon & Fork, Insulated Food Container for Office, School Kids & Adults – 750ML</p>
+                <a href="https://www.amazon.in/VAZX-Compartment-Stainless-Leakage-School/dp/B0DKD5NFFZ/?_encoding=UTF8&m=A12OFR6A51FEUT&psc=1&pd_rd_w=NNSNG&pd_rd_wg=XfPcV&pd_rd_r=e5457dad-621a-4cf2-8c90-0f90240dcf03&content-id=amzn1.sym.da911696-31a7-479c-9922-299ce8aee4d0&ref_=lscx_w_ssf_na"
+                    target="_blank" class="w-full">
+                    <button
+                        class="w-full bg-transparent border-2 border-[#FF1A1A] text-[#FF1A1A] py-4 px-6 font-black tracking-widest uppercase text-sm transition-all duration-300 hover:bg-[#FF1A1A] hover:text-white">
+                        Buy on Amazon
+                    </button>
+                </a>
+            </div>
+
         </div>
 
 
@@ -258,7 +313,7 @@
 
 
     <!-- Footer -->
-    <footer class="w-full bg-neutral-900 text-white px-8 md:px-20 py-16">
+    <footer class="relative z-10 w-full bg-[#0f172a] text-white px-8 md:px-20 py-16">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
 
             <div class="flex flex-col gap-4">
@@ -287,7 +342,7 @@
                 <h4 class="font-bold uppercase text-xs tracking-[0.2em] text-[#FF1A1A]">Get In Touch</h4>
                 <div class="text-neutral-400 text-sm md:text-right">
                     <p>Rajkot, Gujarat, India</p>
-                  
+
                 </div>
             </div>
         </div>
