@@ -7,6 +7,29 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>DC Enterprise</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF1A1A',
+                        'on-primary': '#FFFFFF',
+                        surface: '#ffffff',
+                        'on-surface': '#0f172a',
+                        'surface-container-lowest': '#f8fafc',
+                        'surface-container-low': '#f1f5f9',
+                        'surface-container': '#e2e8f0',
+                        'surface-container-high': '#cbd5e1',
+                        secondary: '#475569'
+                    },
+                    fontFamily: {
+                        headline: ['Epilogue', 'sans-serif'],
+                        body: ['Manrope', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <link
         href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&amp;family=Manrope:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
@@ -18,8 +41,8 @@
 
 </head>
 
-<body class="bg-surface font-body text-on-surface antialiased overflow-x-hidden">
-    <div class="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center" id="preloader">
+<body class="bg-surface font-body text-on-surface antialiased">
+    <div class="fixed inset-0 z-[100] bg-surface flex flex-col items-center justify-center" id="preloader">
         <div class="relative flex flex-col items-center gap-8">
             <img src="DC logo.png" class="h-20 w-auto animate-pulse">
 
@@ -49,86 +72,106 @@
         </div>
     </div>
     <!-- 1. Transparent Sticky Navbar -->
-    <nav class="fixed top-0 w-full z-50 rounded-none glass-nav shadow-sm shadow-black/5 opacity-0 -translate-y-full"
+    <nav class="fixed top-0 w-full z-50 rounded-none glass-nav shadow-sm opacity-0 -translate-y-full"
         id="navbar">
         <div class="flex justify-between items-center w-full px-8 py-4 max-w-full">
-            <div class="text-2xl font-black tracking-tighter text-black dark:text-white flex items-center gap-2">
+            <div class="text-2xl font-black tracking-tighter text-on-surface flex items-center gap-2">
                 <img src="DC logo.png" class="h-[60px] w-auto block">
             </div>
             <!-- Desktop Menu -->
             <div class="hidden md:flex gap-8 items-center">
-                <a class="text-black dark:text-black font-medium hover:text-red-600 transition-colors duration-300"
+                <a class="text-on-surface font-semibold hover:text-primary transition-colors duration-300"
                 href="index.html">Home</a>
-                <a class="text-black dark:text-black font-medium hover:text-red-600 transition-colors duration-300"
+                <a class="text-on-surface font-semibold hover:text-primary transition-colors duration-300"
                 href="product.html">Products</a>
-                <a class="text-red-600 dark:text-red-500 font-bold border-b-2 border-red-600 transition-colors duration-300"
+                <a class="text-primary font-bold border-b-2 border-primary transition-colors duration-300"
                     href="about.html">About</a>
-                <a class="text-black dark:text-black font-medium hover:text-red-600 transition-colors duration-300"
+                <a class="text-on-surface font-semibold hover:text-primary transition-colors duration-300"
                     href="contact.html">Contact</a>
             </div>
             <div class="flex items-center gap-4">
-                <a class="hidden md:block bg-[#FF1A1A] text-white px-6 py-2.5 font-bold active:scale-95 transition-all"
+                <a class="hidden md:block bg-primary text-white px-6 py-2.5 font-bold active:scale-95 transition-all shadow-[0_4px_14px_0_rgba(255,26,26,0.39)] hover:bg-red-700"
                     href="https://www.amazon.in/l/27943762031?ie=UTF8&marketplaceID=A21TJRUUN4KGV&product=B0DFVRJLJ9&me=A12OFR6A51FEUT"
                     target="_blank" 
        rel="noopener noreferrer">Shop
                     on Amazon</a>
             </div>
             <!-- Mobile Menu Button -->
-            <button class="md:hidden flex items-center justify-center p-2 text-[#FF1A1A]" id="open-menu">
+            <button class="md:hidden flex items-center justify-center p-2 text-primary" id="open-menu">
                 <span class="material-symbols-outlined text-4xl">menu</span>
             </button>
-        </div>
         </div>
     </nav>
 
 
-    <section class="py-32 px-8 md:px-20 bg-surface" id="about-section">
-        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
+   <section class="relative z-10 py-32 px-8 md:px-20 bg-surface overflow-hidden" id="about-section">
 
-            <div class="lg:w-1/2 gsap-reveal">
-                <span class="text-primary font-bold tracking-[0.3em] text-sm uppercase">Our Story</span>
-                <h2 class="font-headline text-5xl font-black mt-4 leading-tight">Driven by <br />Everyday Utility.</h2>
-                <div class="mt-12 h-1 w-24 bg-[#FF1A1A]"></div>
-            </div>
+    <!-- Background Effect -->
+    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black via-transparent to-black opacity-40 pointer-events-none"></div>
 
-            <div class="lg:w-1/2 space-y-10">
-                <p class="about-text gsap-reveal text-secondary text-xl leading-relaxed">
-                    <strong>DC Enterprise</strong> is a trusted Amazon India seller dedicated to bringing high-quality,
-                    practical innovations into your home. From precision kitchen tools to daily lifestyle essentials,
-                    our mission is to provide products that make life simpler, faster, and more efficient.
-                </p>
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-center relative z-10">
 
-                <p class="about-text gsap-reveal text-secondary text-lg leading-relaxed">
-                    We believe in strict quality control and customer-first service. Every product we list on our Amazon
-                    storefront is hand-picked to ensure it meets our standards of durability and performance.
-                </p>
+        <!-- LEFT CONTENT -->
+        <div class="lg:w-1/2 gsap-reveal">
+            <span class="text-primary font-bold tracking-[0.3em] text-sm uppercase">Our Story</span>
 
-                <div class="stats-container gsap-reveal grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
-                    <div class="border-l-4 border-[#FF1A1A] pl-6">
-                        <div class="text-4xl font-black font-headline">100%</div>
-                        <div class="text-secondary uppercase tracking-widest text-[10px] mt-2 font-bold">Verified
-                            Products</div>
-                    </div>
-                    <div class="border-l-4 border-[#FF1A1A] pl-6">
-                        <div class="text-4xl font-black font-headline">All Our-India</div>
-                        <div class="text-secondary uppercase tracking-widest text-[10px] mt-2 font-bold">Fast Delivery
-                        </div>
-                    </div>
-                </div>
+            <h2 class="font-headline text-5xl md:text-6xl font-black mt-4 leading-tight">
+                Built for <br />
+                <span class="text-[#FF1A1A]">Everyday Excellence</span>
+            </h2>
 
-                <div class="pt-6 gsap-reveal">
-                    <a href="https://www.amazon.in/l/27943762031?ie=UTF8&marketplaceID=A21TJRUUN4KGV&product=B0DFVRJLJ9&me=A12OFR6A51FEUT"
-                        target="_blank" rel="noopener noreferrer"
-                        class="inline-block bg-black text-white px-8 py-4 font-black uppercase text-sm tracking-widest hover:bg-[#FF1A1A] hover:shadow-lg transition-all duration-300">
-                        Visit Our Amazon Store
-                    </a>
-                </div>
-
-            </div>
+            <div class="mt-10 h-1 w-24 bg-[#FF1A1A]"></div>
         </div>
-    </section>
+
+        <!-- RIGHT CONTENT -->
+        <div class="lg:w-1/2 space-y-8">
+
+            <p class="about-text gsap-reveal text-secondary text-xl leading-relaxed">
+                <strong>DC Enterprise (VAZX Brand)</strong> is a trusted Amazon India seller delivering high-quality 
+                kitchenware and lifestyle essentials for modern living. Our products are designed with durability, 
+                functionality, and smart usability in mind.
+            </p>
+
+            <p class="about-text gsap-reveal text-secondary text-lg leading-relaxed">
+                At <strong>VAZX</strong>, we focus on quality over quantity. Every product is carefully selected, 
+                tested, and optimized for long-term performance. We are committed to customer satisfaction through 
+                reliable products and continuous improvement.
+            </p>
+
+            <!-- STATS -->
+            <div class="stats-container gsap-reveal grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+
+                <div class="border-l-4 border-[#FF1A1A] pl-6">
+                    <div class="text-4xl font-black font-headline">100%</div>
+                    <div class="text-secondary uppercase tracking-widest text-[10px] mt-2 font-bold">
+                        Verified Products
+                    </div>
+                </div>
+
+                <div class="border-l-4 border-[#FF1A1A] pl-6">
+                    <div class="text-4xl font-black font-headline">Pan India</div>
+                    <div class="text-secondary uppercase tracking-widest text-[10px] mt-2 font-bold">
+                        Fast Delivery
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BUTTON -->
+            <div class="pt-6 gsap-reveal">
+                <a href="https://www.amazon.in/s?k=VAZX"
+                    target="_blank"
+                    class="inline-flex items-center gap-3 bg-[#FF1A1A] text-white px-8 py-4 font-bold uppercase text-sm tracking-widest rounded-md hover:bg-black transition-all duration-300 shadow-lg hover:scale-105">
+                    
+                    Shop VAZX on Amazon →
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
     <!-- Footer -->
-    <footer class="w-full bg-neutral-900 text-white px-8 md:px-20 py-16">
+    <footer class="relative z-10 w-full bg-[#0f172a] text-white px-8 md:px-20 py-16">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
 
             <div class="flex flex-col gap-4">
@@ -157,7 +200,7 @@
                 <h4 class="font-bold uppercase text-xs tracking-[0.2em] text-[#FF1A1A]">Get In Touch</h4>
                 <div class="text-neutral-400 text-sm md:text-right">
                     <p>Rajkot, Gujarat, India</p>
-                    
+
                 </div>
             </div>
         </div>
